@@ -1,1 +1,1 @@
-copy files into home
+copy files into home directory for user
