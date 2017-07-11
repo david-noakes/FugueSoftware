@@ -1,1 +1,1 @@
-copy these into the user directory
+copy these into the user directory.
