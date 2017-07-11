@@ -29,7 +29,7 @@ set diffcontext 3
 set selectbgcolor SystemHighlight
 set foundbgcolor yellow
 set currentsearchhitbgcolor orange
-set extdifftool meld
+set extdifftool {C:/Program Files (x86)/Beyond Compare 3/BCompare.exe}
 set perfile_attrs 0
 set headbgcolor green
 set headfgcolor black
