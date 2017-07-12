@@ -1,2 +1,2 @@
 This is used to store config files.
-convention is project_pcname is the branch for a particular config
+convention is project_pcname is the branch for a particular config.
