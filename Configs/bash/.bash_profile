@@ -28,7 +28,7 @@ function parse_git_dirty {
   fi
   if [ ! $git_flags = "" ]; then
      #echo "["$git_flags"]"
-	 echo " : "$git_flags
+	 echo ":"$git_flags
   fi	 
   ##export GITFLAGS=$git_flags
 }
@@ -145,6 +145,11 @@ PS1_green='\[\e[32m\]'
 PS1_blue='\[\e[34m\]'
 PS1_reset='\[\e[0m\]'
 PS1_cyan="\[\033[01;36m\]"
+PS1_magenta="\[\033[01;35m\]"
+PS1_yellow="\[\033[0;33m\]"
+PS1_bright_yellow="\[\033[01;33m\]"
+
+
 _mk_prompt() {
     # Change the window title of X terminals 
     case $TERM in
@@ -176,12 +181,12 @@ _mk_prompt() {
 
     gitbranch
     if [[ ! -z "$GITBRANCH" ]]; then
-        prefix+=("${PS1_green}$GITBRANCH${PS1_reset}")
+        prefix+=("${PS1_magenta}$GITBRANCH")
     fi
 
     local virtualenv="${VIRTUAL_ENV##*/}"
     if [[ ! -z "$virtualenv" ]]; then
-        prefix+=("${PS1_blue}$virtualenv${PS1_reset}")
+        prefix+=("${PS1_blue}$virtualenv")
     fi
 
 	export GITFLAGS=$(parse_git_dirty)
@@ -189,7 +194,7 @@ _mk_prompt() {
     PS1="$_MK_PROMPT_ORIG_PS1"
     if [[ ! -z "$prefix" ]]; then
         ##PS1="$PS1 [${prefix[@]} \$(parse_git_dirty) ]  "
-        PS1="$PS1 [${prefix[@]} $GITFLAGS ]  "
+        PS1="$PS1 [${prefix[@]}$PS1_bright_yellow$GITFLAGS$PS1_yellow]  "
     fi
     PS1+=" \n"  # buggy - creates bash error on call to parse_git_dirty
 	PS1+="$PS1_cyan$ $PS1_reset"
