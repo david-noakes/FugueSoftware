@@ -199,5 +199,6 @@ _mk_prompt() {
 	PS1+="$PS1_cyan$ $PS1_reset"
     export PS1
 }
+git --version
 ##export PROMPT_COMMAND=_mk_prompt
 export PROMPT_COMMAND=color_my_prompt
