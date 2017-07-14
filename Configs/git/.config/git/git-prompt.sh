@@ -1,4 +1,3 @@
-checkout
 function parse_git_dirty {
 
   export git_status="$(git status 2> /dev/null)"
@@ -31,7 +30,6 @@ function parse_git_branch {
 }
 
 function color_my_prompt {
-## ~/git-prompt.sh
 	export GIT_PS1_SHOWDIRTYSTATE=1
     local __user_and_host="\[\033[01;32m\]\u@\h"
 	local __cur_date_time="\[\033[01;37m\]\d \t "

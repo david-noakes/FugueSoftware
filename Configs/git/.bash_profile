@@ -1,4 +1,4 @@
-source ~/git-prompt.sh
+source ~/.config/git/git-prompt.sh
 alias ll="ls -la" 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
@@ -38,7 +38,6 @@ function parse_git_branch {
 }
 
 function color_my_prompt {
-. ~/git-prompt.sh
     local __user_and_host="\[\033[01;32m\]\u@\h"
 	local __cur_date_time="\[\033[01;37m\]\d \t "
     local __cur_location="\[\033[01;33m\]\w"
@@ -200,4 +199,5 @@ _mk_prompt() {
 	PS1+="$PS1_cyan$ $PS1_reset"
     export PS1
 }
-export PROMPT_COMMAND=_mk_prompt
+##export PROMPT_COMMAND=_mk_prompt
+export PROMPT_COMMAND=color_my_prompt
