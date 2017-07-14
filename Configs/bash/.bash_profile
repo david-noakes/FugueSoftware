@@ -194,7 +194,7 @@ _mk_prompt() {
     PS1="$_MK_PROMPT_ORIG_PS1"
     if [[ ! -z "$prefix" ]]; then
         ##PS1="$PS1 [${prefix[@]} \$(parse_git_dirty) ]  "
-        PS1="$PS1 [${prefix[@]}$PS1_bright_yellow$GITFLAGS$PS1_yellow]  "
+        PS1+=" [${prefix[@]}$PS1_bright_yellow$GITFLAGS$PS1_yellow]  "
     fi
     PS1+=" \n"  # buggy - creates bash error on call to parse_git_dirty
 	PS1+="$PS1_cyan$ $PS1_reset"
