@@ -1,0 +1,14 @@
+environment vars
+================
+System:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_131    OR wherever jdk installed
+JRE_HOME=%JAVA_HOME%\jre                        OR wherever jre installed (of no jdk)
+JDK_HOME=%JAVA_HOME%                            required by some older software
+
+PATH+=%JAVA_HOME%\bin
+
+optional vars
+=============
+JAVA_TOOL_OPTIONS=-Dfile.encoding="UTF-8"       ensures that Java (and tools such as Maven) will run with a Charset.defaultCharset() of UTF-8 (instead of the default Windows-1252
+
+
