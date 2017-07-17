@@ -1,0 +1,6 @@
+Environment vars
+================
+
+MAVEN_HOME=C:\Dev\Applications\Maven\apache-maven-3.5.0
+M2_HOME=%MAVEN_HOME%
+PATH+=%M2_HOME%\bin
