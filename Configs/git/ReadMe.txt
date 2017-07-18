@@ -1,1 +1,2 @@
-copy files into home
+copy files into home. 
+.config is a directory beneath ~

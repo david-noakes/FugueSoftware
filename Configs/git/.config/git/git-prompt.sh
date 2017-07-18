@@ -21,7 +21,9 @@ function parse_git_dirty {
       git_flags+="$"
   fi
   export GITFLAGS=$git_flags
-  if [ ! $git_flags == "" ]; then
+  # use " around $git_flags because it may contain spaces, and the words will then be split by spaces
+  #if [ ! "$git_flags" == "" ]; then
+  if [ -n "$git_flags" ]; then
 	  echo " "$git_flags
   fi	 
 }
