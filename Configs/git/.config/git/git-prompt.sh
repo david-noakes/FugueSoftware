@@ -4,7 +4,7 @@ function parse_git_dirty {
   #echo $git_status
   local git_flags=""
   if [[  $git_status =~ "Changes not staged for commit" ]]; then
-    ##git_flags+="*" causes a file list to be inserted on windows 10
+    #git_flags+="*"
     git_flags+="!"
   fi	
   if [[ $git_status =~ "Your branch is ahead of" ]]; then
@@ -20,10 +20,10 @@ function parse_git_dirty {
   if [[ $git_stash =~ "stash@{0}" ]]; then 
       git_flags+="$"
   fi
+  export GITFLAGS=$git_flags
   if [ ! $git_flags == "" ]; then
 	  echo " "$git_flags
   fi	 
-  export GITFLAGS=$git_flags
 }
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
@@ -37,9 +37,9 @@ function color_my_prompt {
     local __cur_location="\[\033[01;33m\]\w"
     local __git_branch_color="\[\033[35m\]"
     #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
-    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`' 
+    ###local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`' 
 	#local __git_branch='$(__git_ps1 " (%s)") '
-	local __git_dirty=$(parse_git_dirty)
+	###local __git_dirty=$(parse_git_dirty)
     local __prompt_tail="\[\033[01;36m\]"
     local __last_color="\[\033[00m\]"
     #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$__git_branch$__prompt_tail  \n$ $__last_color"
