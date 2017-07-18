@@ -4,7 +4,7 @@ function parse_git_dirty {
   #echo $git_status
   local git_flags=""
   if [[  $git_status =~ "Changes not staged for commit" ]]; then
-    git_flags+="*"
+    git_flags+="!"
   fi	
   if [[ $git_status =~ "Your branch is ahead of" ]]; then
     git_flags+="^"
@@ -19,7 +19,10 @@ function parse_git_dirty {
   if [[ $git_stash =~ "stash@{0}" ]]; then 
       git_flags+="$"
   fi
-  if [ ! $git_flags = "" ]; then
+  # use " around $git_flags because it may contain spaces, and the words will then be split by spaces
+  #if [ ! "$git_flags" == "" ]; then
+  # use correct method of testing for empty string
+  if [ -n "$git_flags" ]; then
      #echo "["$git_flags"]"
 	 echo " "$git_flags
   fi	 
