@@ -39,11 +39,16 @@ function parse_git_branch {
 
 function color_my_prompt {
     git_status="$(git status 2> /dev/null)"
+	work_dir="$(pwd)"
+	##echo $work_dir
 	##echo ">$git_status<"   this shows >< for empty string
 	if [ -z "$git_status" ]; then
-       ## try the local .myconfig repo
-	   git_status="$(git --git-dir=$HOME/.myconf/ --work-tree=$HOME  2> /dev/null status) "
-	   ##echo $git_status
+	   if [[ $work_dir =~ $HOME ]]; then
+          ## try the local .myconfig repo
+	      git_status="$(git --git-dir=$HOME/.myconf/ --work-tree=$HOME  2> /dev/null status) "
+	      ##echo $git_status
+		  ##echo $work_dir" =~ "$HOME
+	   fi
     fi	 
     export GITSTATUS=$git_status
 	export GIT_PS1_SHOWDIRTYSTATE=1
