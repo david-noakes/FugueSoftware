@@ -39,7 +39,7 @@ function parse_git_branch {
 
 function color_my_prompt {
     git_status="$(git status 2> /dev/null)"
-	##echo $git_status
+	##echo ">$git_status<"   this shows >< for empty string
 	if [ -z "$git_status" ]; then
        ## try the local .myconfig repo
 	   git_status="$(git --git-dir=$HOME/.myconf/ --work-tree=$HOME  2> /dev/null status) "
@@ -51,14 +51,28 @@ function color_my_prompt {
 	local __cur_date_time="\[\033[01;37m\]\d \t "
     local __cur_location="\[\033[01;33m\]\w"
     local __git_branch_color="\[\033[35m\]"
+    local __prompt_tail="\[\033[01;36m\]"
+    local __last_color="\[\033[00m\]"
+	git_status=":$git_status:"
+	###echo $git_status this shows ": :" for empty string
+	if [[ "$git_status" =~ ": :" ]]; then
+       ## not in any repo
+	   local _gb="[ - ]"
+	   export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$_gb$__prompt_tail  \n$ $__last_color"	   ##echo $git_status
+	   return
+    fi	 
+	if [[ "$git_status" =~ "::" ]]; then
+       ## not in any repo
+	   local _gb="[ - ]"
+	   export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$_gb$__prompt_tail  \n$ $__last_color"	   ##echo $git_status
+	   return
+    fi	 
     #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
     ###local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`' 
 	#local __git_branch='$(__git_ps1 " (%s)") '
 	local __git_branch=$(parse_git_branch)
 	###local __git_dirty=$(parse_git_dirty)
 	local __git_dirty=$(parse_git_dirty)
-    local __prompt_tail="\[\033[01;36m\]"
-    local __last_color="\[\033[00m\]"
     #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$__git_branch$__prompt_tail  \n$ $__last_color"
     export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color[$__git_branch$__git_dirty]$__prompt_tail  \n$ $__last_color"
     #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$(parse_git_branch)$__prompt_tail  \n$ $__last_color"
