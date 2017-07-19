@@ -1,5 +1,6 @@
 source ~/.config/git/git-prompt.sh
 alias ll="ls -la" 
+alias lcfg='git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -17,6 +18,7 @@ alias gp="color_my_prompt"
 ##01;33 bold yellow
 
 export PS1="\[\033]0;$MSYSTEM:\w\007\033[32m\]\u@\h \[\033[0;37m\]\d \t \[\033[0;33m\w"
+export GITSTATUS="no status"
 
 git --version
 ##export PROMPT_COMMAND=_mk_prompt

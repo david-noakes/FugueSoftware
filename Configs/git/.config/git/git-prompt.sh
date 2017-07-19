@@ -1,4 +1,5 @@
 git_status="123"
+GITSTATUS="no status"
 
 function parse_git_dirty {
 
@@ -32,13 +33,19 @@ function parse_git_dirty {
 function parse_git_branch {
   #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
   #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1/"
-  export git_status="$(git status 2> /dev/null)"
-  #%echo $git_status
+  ##echo $git_status
   echo $(echo $git_status | awk '{print $3}')
 }
 
 function color_my_prompt {
-    export git_status="$(git status 2> /dev/null)"
+    git_status="$(git status 2> /dev/null)"
+	echo $git_status
+	if [ -z "$git_status" ]; then
+       ## try the local .myconfig repo
+	   git_status="$(git --git-dir=$HOME/.myconf/ --work-tree=$HOME  2> /dev/null status) "
+	   ##echo $git_status
+    fi	 
+    export GITSTATUS=$git_status
 	export GIT_PS1_SHOWDIRTYSTATE=1
     local __user_and_host="\[\033[01;32m\]\u@\h"
 	local __cur_date_time="\[\033[01;37m\]\d \t "
@@ -61,4 +68,5 @@ function color_my_prompt {
 
 #parse_git_branch
 #parse_git_dirty
+#color_my_prompt
 export PROMPT_COMMAND=color_my_prompt
