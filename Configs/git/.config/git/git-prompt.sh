@@ -1,7 +1,9 @@
+git_status="123"
+
 function parse_git_dirty {
 
-  export git_status="$(git status 2> /dev/null)"
-  #echo $git_status
+  #export git_status="$(git status 2> /dev/null)"
+  #%echo $git_status
   local git_flags=""
   if [[  $git_status =~ "Changes not staged for commit" ]]; then
     #git_flags+="*"
@@ -28,11 +30,15 @@ function parse_git_dirty {
   fi	 
 }
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
   #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1/"
+  export git_status="$(git status 2> /dev/null)"
+  #%echo $git_status
+  echo $(echo $git_status | awk '{print $3}')
 }
 
 function color_my_prompt {
+    export git_status="$(git status 2> /dev/null)"
 	export GIT_PS1_SHOWDIRTYSTATE=1
     local __user_and_host="\[\033[01;32m\]\u@\h"
 	local __cur_date_time="\[\033[01;37m\]\d \t "
@@ -41,16 +47,18 @@ function color_my_prompt {
     #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
     ###local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`' 
 	#local __git_branch='$(__git_ps1 " (%s)") '
+	local __git_branch=$(parse_git_branch)
 	###local __git_dirty=$(parse_git_dirty)
+	local __git_dirty=$(parse_git_dirty)
     local __prompt_tail="\[\033[01;36m\]"
     local __last_color="\[\033[00m\]"
     #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$__git_branch$__prompt_tail  \n$ $__last_color"
-    #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$__git_branch$__prompt_tail  \$ $__last_color"
-    export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$(parse_git_branch)$__prompt_tail  \n$ $__last_color"
+    export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color[$__git_branch$__git_dirty]$__prompt_tail  \n$ $__last_color"
+    #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$(parse_git_branch)$__prompt_tail  \n$ $__last_color"
     #export PS1="$__user_and_host $__cur_date_time $__cur_location $__git_branch_color$__git_branch"["$__git_dirty"]"$__prompt_tail  \n$ $__last_color"
 	###$(parse_git_dirty)]
 }
 
-#parse_git_dirty
 #parse_git_branch
+#parse_git_dirty
 export PROMPT_COMMAND=color_my_prompt
