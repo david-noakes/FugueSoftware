@@ -13,6 +13,9 @@ function parse_git_dirty {
   if [[ $git_status =~ "Your branch is ahead of" ]]; then
     git_flags+="^"
   fi	
+  if [[ $git_status =~ "Your branch is behind" ]]; then
+    git_flags+="v"
+  fi	
   if [[ $git_status =~ "Changes to be committed" ]]; then
     git_flags+="+"
   fi	
