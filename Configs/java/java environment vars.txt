@@ -2,7 +2,7 @@ environment vars
 ================
 System:
 JAVA_HOME=D:\programs\Java\jdk1.8.0_102         OR wherever jdk installed
-JRE_HOME=%JAVA_HOME%\jre                        OR wherever jre installed (of no jdk)
+JRE_HOME=%JAVA_HOME%\jre                        OR wherever jre installed (if no jdk)
 JDK_HOME=%JAVA_HOME%                            required by some older software
 
 PATH+=%JAVA_HOME%\bin
