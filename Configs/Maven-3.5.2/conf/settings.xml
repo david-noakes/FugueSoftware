@@ -111,6 +111,11 @@ under the License.
    | Authentication profiles can be used whenever maven must make a connection to a remote server.
    |-->
   <servers>
+    <server>
+        <id>nexus</id>
+        <username>readonly</username>
+        <password>Bh-qvg=c&amp;+sJx)9b!T4Z</password>
+    </server>
     <!-- server
      | Specifies the authentication information to use when connecting to a particular server, identified by
      | a unique name within the system (referred to by the 'id' attribute below).
@@ -158,7 +163,13 @@ under the License.
       <url>http://my.repository.com/repo/path</url>
     </mirror>
      -->
-  </mirrors>
+    <mirror>
+        <id>nexus</id>
+        <mirrorOf>central</mirrorOf>
+        <url>https://nexus.tools.services.qld.gov.au/nexus/repository/public</url>
+    </mirror>
+
+ </mirrors>
 
   <!-- profiles
    | This is a list of profiles which can be activated in a variety of ways, and which can modify
