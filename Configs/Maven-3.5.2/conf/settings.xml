@@ -51,8 +51,9 @@ under the License.
    |
    | Default: ${user.home}/.m2/repository
   <localRepository>/path/to/local/repo</localRepository>
+  <localRepository>C:\Users\noakesd\.m2\repository</localRepository>
   -->
-  <localRepository>D:\Warehouse\Data\MavenRepos</localRepository>
+  <localRepository>D:/programs/apache-maven-3.5.2/repository</localRepository>
  
 
   <!-- interactiveMode
