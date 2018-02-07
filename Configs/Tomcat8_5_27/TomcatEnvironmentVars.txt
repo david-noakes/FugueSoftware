@@ -1,0 +1,6 @@
+environment vars
+================
+System:
+CATALINA_HOME=D:\programs\apache-tomcat-8.5.27
+CATALINA_BASE=D:\programs\apache-tomcat-8.5.27
+ 
