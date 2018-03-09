@@ -11,4 +11,5 @@ optional vars
 =============
 JAVA_TOOL_OPTIONS=-Dfile.encoding="UTF-8"       ensures that Java (and tools such as Maven) will run with a Charset.defaultCharset() of UTF-8 (instead of the default Windows-1252
 
-
+Other changes
+jdk\jre\lib\securitjava.security needs to have the "crypto.policy=unlimited" line uncommented to allow access to the high security encryption jars included in the distribution

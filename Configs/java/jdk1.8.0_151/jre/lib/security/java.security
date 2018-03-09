@@ -823,7 +823,8 @@ jdk.tls.legacyAlgorithms= \
 #
 # Please see the JCA documentation for additional information on these
 # files and formats.
-#crypto.policy=unlimited
+# ** uncomment to allow high security jars that are wiht the distribution
+crypto.policy=unlimited
 
 #
 # The policy for the XML Signature secure validation mode. The mode is
