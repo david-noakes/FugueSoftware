@@ -1,6 +1,8 @@
 [user]
 	name = david noakes
-	email = david.noakes@gmail.com
+	email = david_noakes@dialog.com.au
+[core]
+	autocrlf = true
 [merge]
     tool = kdiff3
 [mergetool "kdiff3"]
