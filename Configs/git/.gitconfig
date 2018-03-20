@@ -3,6 +3,7 @@
 	email = david_noakes@dialog.com.au
 [core]
 	autocrlf = true
+	editor = D:/programs/wscite/SciTE.exe
 [merge]
     tool = kdiff3
 [mergetool "kdiff3"]
