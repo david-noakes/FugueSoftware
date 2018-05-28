@@ -1,0 +1,11 @@
+@		IN	SOA	mishka.moonshadow.erehwon.	hostmaster.mishka.moonshadow.erehwon. (
+			2008070101 ; serial
+			3600 ; refresh
+			900 ; retry
+			1209600 ; expire
+			43200 ; default_ttl
+			)
+@		IN	MX	5	mishka.moonshadow.erehwon.
+@		IN	NS	mishka.moonshadow.erehwon.
+mishka          IN      A       192.168.18.28
+enyil			IN	A	192.168.19.7
