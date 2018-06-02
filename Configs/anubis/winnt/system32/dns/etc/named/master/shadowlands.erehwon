@@ -23,6 +23,7 @@ mishka         IN      A     	192.168.13.56
 osric           IN      A     	192.168.13.55
 gandalf         IN      A     	192.168.13.54
 africa          IN      A     	192.168.13.53
+zenobia          IN      A     	192.168.13.52
 mandrake	IN	A	192.168.13.51
 apollo		IN      A       192.168.13.50
 palomedes	IN      A       192.168.13.49
@@ -35,7 +36,9 @@ hitomi      IN      A       192.168.13.43
 jaguar  	IN	A	192.168.13.42
 larisa		IN	A  	192.168.13.41
 tammuz		IN	A  	192.168.13.40
+sophia          IN      A       192.168.13.37
 megan           IN      A       192.168.13.36
+telisa          IN      A       192.168.13.35
 redraven        IN      A       192.168.13.34
 mifunwi         IN      A       192.168.13.33
 angel           IN      A       192.168.13.32
@@ -44,6 +47,9 @@ elanor          IN      A     	192.168.13.30
 lukeios         IN      A     	192.168.13.29
 mithras         IN      A       192.168.13.28
 anarta          IN      A       192.168.13.27
+lydia           IN      A       192.168.13.26
+melissa         IN      A       192.168.13.25
+melantha        IN      A       192.168.13.24
 athena          IN      A       192.168.13.23
 arianthe        IN      A       192.168.13.22
 elektra         IN      A       192.168.13.21
