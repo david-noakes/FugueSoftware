@@ -1,0 +1,16 @@
+[user]
+	name = david
+	email = david.noakes@gmail.com
+[gui]
+[gui]
+	recentrepo = U:/mars/WorkSpaces/Scriverer/Lukeios001
+	recentrepo = U:/mars/WorkSpaces/Scriverer/Erehwon003
+	recentrepo = R:/GIT_Repositories/Writing/ScrivenerWorkspaces
+[core]
+	editor = 'C:/Program Files (x86)/AutoIt3/SciTE/SciTE.exe'
+[push]
+	default = tracking
+[diff]
+	renames = true
+[credential]
+	helper = manager
