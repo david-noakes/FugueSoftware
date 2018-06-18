@@ -4,3 +4,4 @@ System:
 CATALINA_HOME=C:\develop\apache-tomcat-8.5.27
 CATALINA_BASE=C:\develop\apache-tomcat-8.5.27
  
+Path: + %CATALINA_HOME%\bin
