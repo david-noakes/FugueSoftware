@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "day_69_blog_with_users"
+version = "0.1.4"
+description = ""
+authors = ["David Noakes <David.Noakes@humanservices.gov.au>"]
+readme = "README.md"
+packages = [{include = "day_69_blog_with_users"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^2.2.3"
+flask-cors = "^3.0.10"
+flask-bootstrap = "^3.3.7.1"
+flask-sqlalchemy = "^3.0.3"
+flask-wtf = "^1.1.1"
+flask-ckeditor = "^0.4.6"
+flask-login = "^0.6.2"
+flask-gravatar = "^0.5.0"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

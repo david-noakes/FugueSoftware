@@ -1,0 +1,29 @@
+{
+  "name": "udemy_100_days_of_python",
+  "version": "0.0.067-563",
+  "description": "Python in 100 days",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "keywords": [
+    "python",
+    "training",
+    "blockchain"
+  ],
+  "author": "djn",
+  "license": "ISC"
+}
+
+
+
+
+
+
+
+
+
